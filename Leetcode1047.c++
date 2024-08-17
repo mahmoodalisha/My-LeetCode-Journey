@@ -1,0 +1,1 @@
+//Remove all adjacent duplicates in string

@@ -3,7 +3,7 @@
 void solve(string str, string output, int index, vector<int>& ans){
     //base case
     if ( index >= str.length()){
-        ans.push_back(output)
+        ans.push_back(output);
         return; 
     }
 

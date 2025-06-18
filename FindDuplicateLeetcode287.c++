@@ -19,7 +19,7 @@ public:
 
         while(left<right){
             int mid = (left+right)/2;
-            int count = 0;
+            int count = 0;  //count tallies how many numbers in nums are less than or equal to mid.
         
 
         for (int num : nums){

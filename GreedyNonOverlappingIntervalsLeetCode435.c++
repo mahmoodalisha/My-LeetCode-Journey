@@ -43,9 +43,9 @@ public:
         int lastEnd = INT_MAX;
         for(auto& interval : interval){
             if(interval[0]>=lastEnd){
-                lastEnd = interval[1];
+                lastEnd = interval[1]; //ye over lapping interval hai
             }
-            else count++;
+            else count++; //aur ye non overlapping interval hai
         }
         return count;
     }

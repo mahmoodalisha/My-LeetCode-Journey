@@ -30,3 +30,8 @@ int main() {
     cout << fib(n, dp) << endl;
     return 0;
 }
+/*
+F(5) = F(4) + F(3)
+F(5) = 3 + 2 = 5
+Here, F(3) is the n - 2 value
+*/

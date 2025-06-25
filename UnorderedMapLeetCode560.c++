@@ -1,4 +1,4 @@
-//brute force approach the sub array will be within i to j
+//brute force approach the sub array will be within i to j (sliding window)
 
 //now the optimal one
 class Solution {
@@ -31,3 +31,6 @@ mpp = {
   
 }
 */
+
+//560, 930, 1074 all belong to same category youtube: code story with MIK
+//dry run in my DSA copy

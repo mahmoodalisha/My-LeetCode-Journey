@@ -11,7 +11,7 @@ public:
             else{
                 count = 1;
             }
-            if(count<3){
+            if(count<3){ //this helps skip those three chaaracters
                 result += s[i];
             }
         }

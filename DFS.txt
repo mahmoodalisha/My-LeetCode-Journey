@@ -1,0 +1,24 @@
+DFS kaam kaise karta hai ??
+
+        1
+       / \
+      2   3
+     / \
+    4   5
+
+void dfs(TreeNode* root) {
+    if(!root) return;
+    cout << root->val << " ";  // visit node
+    dfs(root->left);           // go left
+    dfs(root->right);          // go right
+}
+
+Call sequence:
+
+1. Start at 1 → visit 1
+2. Go left → 2 → visit 2
+3. Go left → 4 → visit 4
+4. 4 ke left/right NULL → return back to 2
+5. Go right → 5 → visit 
+6. 5 ke left/right NULL → return back to 1
+7. Go right → 3 → visit 3

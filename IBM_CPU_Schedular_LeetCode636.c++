@@ -4,6 +4,12 @@
 | `stack<int> mystack` | Keeps **function IDs** of active (unfinished) functions |
 | `prevTime`           | Keeps **the last processed timestamp**                  |
 | `res[id]`            | Total **exclusive time** spent in function `id`         |
+
+Stack → holds function IDs (the call stack)
+
+prevTime → remembers where you left off in time
+
+result[id] → accumulates exclusive running time per function
 */
 
 class Solution {

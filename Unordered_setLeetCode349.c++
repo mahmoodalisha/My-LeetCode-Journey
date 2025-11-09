@@ -9,13 +9,14 @@ s = {1, 2}
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        unordered_set<int> s(nums1.begin(), nums1.end());
-        unordered_set<int> ans;
+        unordered_set<int> seen(nums1.begin(), nums1.end());
+        unordered_set<int> result;
 
-        for(auto& num : nums){
-            if(s.count(num))
-            ans.insert(num);
+        for(int num : nums2){
+            if(seen.count(num)){
+                result.insert(num);
+            }
         }
-        return (vector<int> ans.begin(), ans.end());
+        return vector<int> (result.begin(), result.end());
     }
 };

@@ -26,3 +26,37 @@ public:
         return ways;
     }
 };
+/*
+started means “have we seen the first seat yet?”
+We only want to count plants between seat pairs, not before the first seat.
+
+input corridor = "PPPSSPPS"
+| char | seats | started | plants | reason           |
+| ---- | ----- | ------- | ------ | ---------------- |
+| P    | 0     | false   | 0      | ignored          |
+| P    | 0     | false   | 0      | ignored          |
+| P    | 0     | false   | 0      | ignored          |
+| S    | 1     | true    | 0      | first seat       |
+| S    | 2     | true    | 0      | section complete |
+| P    | 2     | true    | 1      | valid plant      |
+| P    | 2     | true    | 2      | valid plant      |
+| S    | 3     | true    | reset  | multiply         |
+
+
+2️⃣ Why do we reset plants?
+Short answer:
+Each gap between seat-pairs is independent.
+So yes - after each multiplication, we reset plants to 0.
+*/
+
+/*
+One-line summary (memorize this)
+
+started → ignore plants before the first seat
+
+plants → count plants only between seat-pairs
+
+plants = 0 → reset after finishing one gap
+
+multiplication → happens when next section starts
+*/

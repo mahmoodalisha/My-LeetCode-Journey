@@ -1,6 +1,6 @@
-//formula is:
-// 
-//original_total_profit + (modified_window_profit - original_window_profit)
+// best Time to Buy and Sell Stock 
+// formula is:
+// original_total_profit + (modified_window_profit - original_window_profit)
 class Solution {
 public:
 typedef long long ll;

@@ -1,14 +1,13 @@
 
 /*
-Longest Common Subsequence
+Longest Common Subsequence      |     Recursion + Memoization
 
 Example 1:
-
 Input: text1 = "abcde", text2 = "ace" 
 Output: 3  
 Explanation: The longest common subsequence is "ace" and its length is 3.
-Example 2:
 
+Example 2:
 Input: text1 = "abc", text2 = "abc"
 Output: 3
 Explanation: The longest common subsequence is "abc" and its length is 3.
@@ -49,3 +48,5 @@ public:
         return solve(text1, text2, 0, 0, dp);
     }
 };
+//youtube : code story with MIK
+//similar question : leetcode 1458

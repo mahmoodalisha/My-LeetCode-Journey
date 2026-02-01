@@ -40,3 +40,20 @@ public:
         return ans;
     }
 };
+
+
+//===================================================================================================
+
+//LeetCode 3010 on SubArrays:-
+//You need to divide nums into 3 disjoint contiguous subarrays.
+class Solution {
+public:
+    int minimumCost(vector<int>& nums) {
+        int first = nums[0];
+
+        vector<int> rest(nums.begin()+1, nums.end());
+        sort(rest.begin(), rest.end());
+
+        return first + rest[0] + rest[1];
+    }
+};

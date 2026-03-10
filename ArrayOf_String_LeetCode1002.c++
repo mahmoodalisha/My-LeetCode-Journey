@@ -34,3 +34,15 @@ public:
         return result;
     }
 };
+
+/*
+freq array stores frequency of letters in one word.
+Example word = "bella"
+freq would be:
+a:0
+b:1
+e:1
+l:2
+
+minFreq stores minimum frequency of each character across all words.
+*/

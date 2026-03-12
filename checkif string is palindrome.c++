@@ -1,4 +1,4 @@
-// just check if the given string is pallindrome of not
+// just check if the given string is palindrome OR not
 class Solution {
 public:
     bool validPalindrome(string s) {

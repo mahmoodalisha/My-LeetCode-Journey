@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void reverseString(vector<char>& s) {
+    void reverseString(string s) {
         int left = 0;
         int right = s.size()-1;
         while(left<right){

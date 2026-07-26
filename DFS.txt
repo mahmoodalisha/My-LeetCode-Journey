@@ -1,24 +1,48 @@
-DFS kaam kaise karta hai ??
+DFS kaam kaise karta hai ?? DFS uses Stack(LIFO) which is iterative or recursion
 
-        1
-       / \
-      2   3
-     / \
-    4   5
+                          1
+                    /            \
+                  2                3
+               /     \         /      \
+              4       5       6        7
+            /  \    /  \    /  \     /   \
+           8    9 10   11 12  13   14   15
+          / \        /              \
+        16 17      18               19
 
-void dfs(TreeNode* root) {
-    if(!root) return;
-    cout << root->val << " ";  // visit node
-    dfs(root->left);           // go left
-    dfs(root->right);          // go right
-}
+Output : 1 → 2 → 4 → 8 → 16 → 17 → 9 → 5 → 10 → 18 → 11 → 3 → 6 → 12 → 13 → 7 → 14 → 19 → 15
 
-Call sequence:
+Recursive:
+class Solution{
+public:
+    void dfs(TreeNode* root){
+        if(root == NULL) return;
 
-1. Start at 1 → visit 1
-2. Go left → 2 → visit 2
-3. Go left → 4 → visit 4
-4. 4 ke left/right NULL → return back to 2
-5. Go right → 5 → visit 
-6. 5 ke left/right NULL → return back to 1
-7. Go right → 3 → visit 3
+        dfs(root->left);
+        dfs(root->right);
+    }
+};
+
+============================================================================
+
+Iterative: Using Stack(LIFO)
+class Solution{
+public:
+    void dfs(TreeNode* root){
+        if(root == NULL) return;
+
+        stack<TreeNode*> st;
+        st.push(root);
+
+        while(!st.empty()){
+            TreeNode* node = st.top();
+            st.pop();
+
+            // Push right first so left is processed first
+            if(node->right)
+                st.push(node->right);
+            if(node->left)
+                st.push(node->right);
+        }
+    }
+};

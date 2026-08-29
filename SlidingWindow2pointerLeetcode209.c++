@@ -2,21 +2,21 @@ class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int n = nums.size();
-        int l = 0;
-        int s = 0;
-        int m = INT_MAX;
-        
-        for(int r = 0; r < n; r++){
-            s += nums[r];  // ✅ new element add karo
+        int left = 0;
+        int sum = 0;
+        int result = INT_MAX; //we are looking for minimum length
 
-            while(s >= target){
-                m = min(m, r - l + 1);  // ✅ window length
-                s -= nums[l];          // ✅ remove leftmost
-                l++;                   // ✅ move left ahead
+        for(int right = 0; right<n; right++){
+            sum += nums[right];
+            while(sum>=target){
+                result = min(result, right-left+1);
+                sum -= nums[left];
+                left++;
             }
         }
-
-        return (m == INT_MAX) return 0;
-        else return m;
+        if(result == INT_MAX){
+            return 0;
+        }
+        return result;
     }
 };

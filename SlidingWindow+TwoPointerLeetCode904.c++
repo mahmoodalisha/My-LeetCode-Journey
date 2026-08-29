@@ -1,28 +1,26 @@
-#include <vector>
-#include <unordered_map>
-#include <algorithm>
-using namespace std;
+//same question LC 159
+//Just find the longest contiguous subarray that contains at most 2 distinct numbers
+
 
 class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
-        int start = 0, maxLen = 0;
-        unordered_map<int, int> basket;
+        int n = fruits.size();
+        int left = 0;
+        int result = 0;
+        unordered_map<int, int> freq;
 
-        for (int end = 0; end < fruits.size(); ++end) {
-            basket[fruits[end]]++;
-
-            while (basket.size() > 2) {
-                basket[fruits[start]]--;
-                if (basket[fruits[start]] == 0) {
-                    basket.erase(fruits[start]);
+        for(int right = 0; right<n; right++){
+            freq[fruits[right]]++;
+            while(freq.size() > 2){
+                freq[fruits[left]]--;
+                if(freq[fruits[left]] == 0){
+                    freq.erase(fruits[left]);
                 }
-                start++;
+                left++;
             }
-
-            maxLen = max(maxLen, end - start + 1);
+            result = max(result, right-left+1);
         }
-
-        return maxLen;
+        return result;
     }
 };

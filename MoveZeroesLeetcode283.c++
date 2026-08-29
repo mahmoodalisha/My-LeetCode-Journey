@@ -22,7 +22,7 @@ public:
             }
         }
         while(j<nums.size()){
-            nums[j++] = 0;
+            nums[j++] = 0; //The while loop is simply filling all the remaining positions with 0
         }
     }
 };

@@ -1,27 +1,32 @@
 class Solution {
 public:
     vector<int> maxSubsequence(vector<int>& nums, int k) {
-        int n = nums.size();
-        if(k == n){
-            return nums;
+
+        vector<pair<int, int>> arr;
+
+        // Store {value, index}
+        for (int i = 0; i < nums.size(); i++) {
+            arr.push_back({nums[i], i});
         }
-        vector<int>temp(nums);
-        nth_element(begin(temp), begin(temp)+ k-1, end(temp), greater<int>()); //kthlargest element mil jaaye partial sorting
-        int kthLargest = temp[k-1];
-        int countKthLargest = count(begin(temp), begin(temp)+k, kthLargest);//kthLargest element kitni baar aaya hai
+
+        // Sort by value in descending order
+        sort(arr.begin(), arr.end(), greater<pair<int, int>>());
+
+        // Keep k largest elements
+        arr.resize(k);
+
+        // Sort selected elements by their original index
+        sort(arr.begin(), arr.end(),
+             [](pair<int, int>& a, pair<int, int>& b) {
+                 return a.second < b.second;
+             });
+
         vector<int> result;
 
-        for(int num : nums){
-            if(num > kthLargest){ //agar kthlargest se bada hai toh
-                result.push_back(num);
-            } else if(num == kthLargest && countKthLargest>0){
-                result.push_back(num);
-                countKthLargest--;
-            }
-            if(result.size() == k){
-                break;
-            }
+        for (auto& p : arr) {
+            result.push_back(p.first);
         }
+
         return result;
     }
 };
